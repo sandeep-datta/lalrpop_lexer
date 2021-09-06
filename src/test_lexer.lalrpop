@@ -1,0 +1,11 @@
+use crate::test_tokens::TestToken;
+
+grammar;
+
+pub Stream: Vec<TestToken<'input>> = {
+    Tok*
+};
+
+Tok: TestToken<'input> = {
+    r"\d+" => TestToken::Integer(<>),
+};
